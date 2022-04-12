@@ -1,0 +1,29 @@
+<!--
+    Reference:
+    https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-sandbox/windows-sandbox-configure-using-wsb-file
+-->
+<Configuration>
+    <VGpu>Disable</VGpu>
+    <Networking>Default</Networking>
+    <AudioInput>Disable</AudioInput>
+    <VideoInput>Disable</VideoInput>
+    <ProtectedClient>Enable</ProtectedClient>
+    <PrinterRedirection>Disable</PrinterRedirection>
+    <ClipboardRedirection>Disable</ClipboardRedirection>
+    <MappedFolders>
+        <MappedFolder>
+            <HostFolder>C:\git\ttd-standalone-recorder\Scripts</HostFolder>
+            <SandboxFolder>c:\temp\scripts</SandboxFolder>
+            <ReadOnly>true</ReadOnly>
+        </MappedFolder>
+        <MappedFolder>
+            <HostFolder>c:\temp</HostFolder>
+            <SandboxFolder>c:\temp\output</SandboxFolder>
+            <ReadOnly>false</ReadOnly>
+        </MappedFolder>
+    </MappedFolders>
+    <LogonCommand>
+        <Command>powershell -ep bypass c:\temp\scripts\run.ps1</Command>
+    </LogonCommand>
+</Configuration>
+
